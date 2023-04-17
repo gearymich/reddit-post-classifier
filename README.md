@@ -2,7 +2,7 @@
 This is a machine learning project that can classify Reddit posts into their respective subreddits. The project is designed to take in a post's title and body as input and predict which subreddit the post belongs to. This project also aims to visualize the relationships between post embeddings using unsupervised Machine Learning techniques.
 
 ## Installation
-1. Clone the repository: git clone https://github.com/yourusername/reddit-post-classifier.git
+1. Clone the repository: git clone https://github.com/gearymich/reddit-post-classifier.git
 2. Install the required packages: pip install -r requirements.txt
 
 ## Usage
