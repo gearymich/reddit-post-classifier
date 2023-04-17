@@ -27,4 +27,4 @@ Possible future improvements to the project include:
 * Developing a web application or browser extension for easy use of the model.
 
 ## Credits
-This project was developed by Samar Aldakheel, Megan Aloise, Michael Geary, and Bao Huynh as apart of WPI's CS 547 - Information Retrieval Graduate Course. The dataset used in the project was obtained from the publicly available Reddit API.
+This project was developed in equal parts by Samar Aldakheel, Megan Aloise, Michael Geary, and Bao Huynh as apart of WPI's CS 547 - Information Retrieval Graduate Course. The dataset used in the project was obtained from the publicly available Reddit API.
