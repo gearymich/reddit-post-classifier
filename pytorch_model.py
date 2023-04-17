@@ -1,11 +1,21 @@
+# https://www.kaggle.com/code/swarnabha/pytorch-text-classification-torchtext-lstm/notebook
+
 import pandas as pd
 import numpy as np
+import torch
+import torchtext
+
+SEED = 42
+
 from sklearn.model_selection import train_test_split
 
 super_categories = ['Sports', 'Politics', 'Entertainment', 'News', 'Science']
 
 # to clean data
-def normalise_text (text):
+def normalise_text(text):
+    '''
+    Normalise the text by removing punctuation, converting to lowercase, etc.
+    '''
     text = text.str.lower() # lowercase
     text = text.str.replace(r"\#","") # replaces hashtags
     text = text.str.replace(r"http\S+","URL")  # remove URL addresses
@@ -33,6 +43,13 @@ def load_data(path='reddit_with_super_categories.csv'):
 if __name__ == '__main__':
     tr, te = load_data(path='reddit_with_super_categories.csv')
     print(te.head())
+
+    torch.manual_seed(SEED)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+
+    TEXT = torchtext.data.Field(tokenize = 'spacy', include_lengths = True)
+    LABEL = torchtext.data.LabelField(dtype = torch.float)
 
     
     
