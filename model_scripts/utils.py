@@ -19,7 +19,7 @@ def normalise_text(text):
     text = text.str.replace("\s{2,}", " ")
     return text
 
-def load_data(path=SUPER_CATEGORIES):
+def load_data(path=REDDIT):
     '''
     Load the data from the csv file and return the train and test splits
     '''
@@ -27,11 +27,12 @@ def load_data(path=SUPER_CATEGORIES):
     df = df.dropna()
 
     X = normalise_text(df['title']) 
-    y = df['super_category']
+    y = df['subreddit']
 
     X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.2, random_state=42)
     return X_tr, X_te, y_tr, y_te
 
 if __name__ == '__main__':
-    tr, te = load_data()
-    print(te.head())
+    X_tr, X_te, y_tr, y_te = load_data()
+    print(X_tr.head())
+    print(y_tr.head())
