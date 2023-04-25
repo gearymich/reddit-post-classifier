@@ -9,3 +9,4 @@ torch
 torchtext
 scikit-learn
 numpy
+yellowbrick
