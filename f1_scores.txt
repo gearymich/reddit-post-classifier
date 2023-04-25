@@ -1,0 +1,19 @@
+F1 scores for each model averaged over 50 iterations
+
+Super-Catagories
+    SVC: 0.3999999999999999
+    LinearSVC: 0.7285714285714281
+    KNeighborsClassifier: 0.43571428571428583
+    MultinomialNB: 0.5857142857142855
+    BaggingClassifier: 0.6664285714285713
+    ExtraTreesClassifier: 0.7121428571428571
+    RandomForestClassifier: 0.6959999999999996
+
+Categories (Subreddits)
+    SVC : 0.142857142857143
+    LinearSVC: 0.7071428571428564
+    KNeighborsClassifier: 0.37142857142857155
+    MultinomialNB: 0.5500000000000004
+    BaggingClassifier: 0.6347142857142858
+    ExtraTreesClassifier: 0.6997142857142856
+    RandomForestClassifier: 0.6759999999999997

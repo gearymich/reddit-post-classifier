@@ -9,25 +9,32 @@ from utils import load_data
 
 models = [
     SVC(gamma='auto'), LinearSVC(),
-    KNeighborsClassifier(),
+    KNeighborsClassifier(n_neighbors=25),
     MultinomialNB(),
     BaggingClassifier(), ExtraTreesClassifier(n_estimators=300),
     RandomForestClassifier(n_estimators=300)
 ]
 
 # Load the data
-X_tr, X_te, y_tr, y_te = load_data()
 
-# Vectorize the features using a bag-of-words model
-vectorizer = CountVectorizer()
-X_tr = vectorizer.fit_transform(X_tr)
-X_te = vectorizer.transform(X_te)
+for label in [True, False]:
+    X_tr, X_te, y_tr, y_te = load_data(super_categories=label)
 
-for clf in models:
-    # Train the classifier
-    clf.fit(X_tr, y_tr)
-    predicted = clf.predict(X_te)
-    actual = y_te.values
+    # Vectorize the features using a bag-of-words model
+    vectorizer = CountVectorizer()
+    X_tr = vectorizer.fit_transform(X_tr)
+    X_te = vectorizer.transform(X_te)
 
-    # Evaluate the classifier
-    print(f"F1 score of {clf.__class__.__name__} : {f1_score(predicted, actual, average='micro')}")
+    for clf in models:
+        avg_f1 = 0
+        for _ in range(50):
+            # Train the classifier
+            clf.fit(X_tr, y_tr)
+            predicted = clf.predict(X_te)
+            actual = y_te.values
+            score = f1_score(predicted, actual, average='micro')
+            avg_f1 += score
+
+        avg_f1 /= 50
+        # Evaluate the classifier
+        print(f"F1 score of {clf.__class__.__name__} (Super-catagories = {label}) : {avg_f1}")

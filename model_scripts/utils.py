@@ -4,8 +4,7 @@ from pathlib import Path
 
 root = Path(__file__).parent
 
-REDDIT = root / '../assets/reddit.csv'
-SUPER_CATEGORIES = root / '../assets/reddit_with_super_categories.csv'
+REDDIT_FINAL = root / '../assets/reddit_data.csv'
 
 def normalise_text(text):
     '''
@@ -19,7 +18,7 @@ def normalise_text(text):
     text = text.str.replace("\s{2,}", " ")
     return text
 
-def load_data(path=REDDIT):
+def load_data(super_categories=False, path=REDDIT_FINAL):
     '''
     Load the data from the csv file and return the train and test splits
     '''
@@ -27,7 +26,7 @@ def load_data(path=REDDIT):
     df = df.dropna()
 
     X = normalise_text(df['title']) 
-    y = df['subreddit']
+    y = df['super_category'] if super_categories else df['category']
 
     X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.2, random_state=42)
     return X_tr, X_te, y_tr, y_te
