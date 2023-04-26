@@ -7,13 +7,15 @@ from sklearn.ensemble import BaggingClassifier, ExtraTreesClassifier, RandomFore
 from sklearn.metrics import f1_score
 from utils import load_data
 
-models = [
-    SVC(gamma='auto'), LinearSVC(),
-    KNeighborsClassifier(n_neighbors=25),
-    MultinomialNB(),
-    BaggingClassifier(), ExtraTreesClassifier(n_estimators=300),
-    RandomForestClassifier(n_estimators=300)
-]
+# models = [
+#     SVC(gamma='auto'), LinearSVC(),
+#     KNeighborsClassifier(n_neighbors=25),
+#     MultinomialNB(),
+#     BaggingClassifier(), ExtraTreesClassifier(n_estimators=300),
+#     RandomForestClassifier(n_estimators=300)
+# ]
+
+models = [LinearSVC()]
 
 # Load the data
 
@@ -38,3 +40,9 @@ for label in [True, False]:
         avg_f1 /= 50
         # Evaluate the classifier
         print(f"F1 score of {clf.__class__.__name__} (Super-catagories = {label}) : {avg_f1}")
+
+        # save trained model
+        import pickle
+        label_text = 'super-catagory' if label else 'catagory'
+        with open(f"models/{clf.__class__.__name__}_{label_text}.pkl", 'wb') as f:
+            pickle.dump(clf, f)
