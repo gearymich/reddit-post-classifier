@@ -1,14 +1,14 @@
 # Reddit Post Classifier
-This is a machine learning project that can classify Reddit posts into their respective subreddits. The project is designed to take in a post's title and body as input and predict which subreddit the post belongs to. This project also aims to visualize the relationships between post embeddings using unsupervised Machine Learning techniques.
+This is a machine learning project that can classify Reddit posts into their respective subreddits. The project is designed to take in a post's title as input and predict which subreddit the post belongs to. This project also aims to visualize the relationships between post embeddings using unsupervised Machine Learning techniques.
 
 ## Installation
 1. Clone the repository: git clone https://github.com/gearymich/reddit-post-classifier.git
 2. Install the required packages: pip install -r requirements.txt
 
 ## Usage
-1. Download the dataset from [insert source of data here] and place it in the data/ directory.
-2. Train the model by running python train.py.
-3. Classify a Reddit post by running python predict.py --title "insert title here" --body "insert body here".
+1. Train the model by running python train.py.
+2. Classify a Reddit post by running python predict.py  --model "insert model here" --title "insert title here".
+3. Our visualization of choice, T-SNE, can be built using the model_scripts/visuals.py script
 
 ## Methodology
 The project uses various statistical methods for text classification, including Naive Bayes, XXX, XXX, and XXX. The method used for classification can be selected during training by editing the config.json file.

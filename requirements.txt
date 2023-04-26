@@ -1,10 +1,6 @@
 pandas
 requests
-
-spacy
 typer
-srsly
-
 torch
 torchtext
 scikit-learn
