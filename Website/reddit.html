@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reddit</title>
+	<style>
+		body {
+			background-color: white;
+			border: 5px solid #800808;
+			padding: 10px;
+			
+		}
+		
+		h1 {
+			background-color: #800808;
+			color: white;
+			padding: 10px;
+			text-align: center;
+			width: 650px;
+			height: 50px;
+			padding: 10px;
+			margin: 0 auto;
+		}
+		
+		h2 {
+			background-color: #800808;
+			color: white;
+			padding: 10px;
+			width: 200px;
+			height: 50px;
+		}
+		p {
+			margin-left: 5cm;
+			margin-right: 5cm;
+			text-align: justify;
+		}
+		img {
+			margin-left: 5cm;
+			margin-right: 5cm;
+		}
+		 table {
+        border-collapse: collapse; 
+        border: 1px solid black; 
+        margin-left: 5cm;
+      }
+      th, td {
+        border: 1px solid black; 
+        padding: 0.5em; 
+      }
+
+	</style>
+</head>
+<body>
+
+	<h1>Subreddit Post Classification and Visualization</h1>
+	<h2>Introduction</h2>
+	<p>Reddit is a social news aggregation, web content rating, and discussion website.
+	Registered members submit content to the site such as links, text posts, and images, which are then voted up or down by other members.
+	Content is organized into user-created boards called "subreddits", which cover a variety of topics such as news, science, movies, video games, music, books, fitness, food,
+	and image-sharing. Users can also comment on posts and engage in discussions with other members. However, there is a significant problem associated with this constant stream of information
+,   the challenge of searching and recovering information. As humans, we are limited in our capacity to remember all the information we come across, which makes it challenging to recover information on the platform.
+	Additionally, the platform is designed to present postings in a constantly changing order, based on user upvotes, downvotes, and other user-designated awards. 
+	This design makes it difficult to search and recover specific postings. To address this issue, it would be helpful to have a tool that could identify the subreddit a post originated from and rank posts based on contextual relevance.
+	This could significantly enhance the recoverability and searchability of posts on Reddit.</p>
+	
+	<h2>Dataset</h2>
+	<p>We did data scraping process that was conducted on 50 subreddits, resulting in the collection of the top 100 posts from each subreddit. Here is a screenshot of our subdata.</p>
+	<img src="red.png" height="200" width="500">
+	<h2>Methodology</h2>
+	<p>This is a machine learning project that can classify Reddit posts into their respective subreddits. The project is designed to take in a post's title and body as input and predict which subreddit the post belongs to. This project also aims to visualize the relationships between post embeddings using unsupervised Machine Learning techniques. 
+	The project uses various statistical methods for text classification, including <br>
+	1.Naive Bayes <br>
+	2.Support Vector Classifier<br>
+	3.KNeighborsClassifier<br>
+	4.BaggingClassifier<br>
+	5.ExtraTreesClassifier<br>
+	6.RandomForestClassifier<br>
+	7.LinearSVC<br>	</p>
+
+	
+	<h2>Results</h2>
+	<p>F1 scores for each model averaged over 50 iterations <br>
+	1. Super-Catagories<br>
+	<br>
+	<table>
+  <tr>
+    <td>SVC</td>
+    <td> 0.3999999999999999</td>
+  </tr>
+  <tr>
+    <td>LinearSVC</td>
+    <td>0.7285714285714281</td>
+  </tr>
+  <tr>
+    <td>KNeighborsClassifier</td>
+    <td>0.43571428571428583</td>
+  </tr>
+  <tr>
+    <td>MultinomialNB</td>
+    <td>0.5857142857142855</td>
+  </tr>
+  <tr>
+    <td>BaggingClassifier</td>
+    <td>0.6664285714285713</td>
+  </tr>
+  <tr>
+    <td>ExtraTreesClassifier</td>
+    <td>0.7121428571428571</td>
+  </tr>
+  <tr>
+    <td>RandomForestClassifier</td>
+    <td>: 0.6959999999999996</td>
+  </tr>
+</table>
+<br>
+<br>   </p>
+
+	<p>2.Categories (Subreddits)<br>
+	<br>
+		<table>
+  <tr>
+    <td>SVC</td>
+    <td> 0.142857142857143</td>
+  </tr>
+  <tr>
+    <td>LinearSVC</td>
+    <td>0.7071428571428564</td>
+  </tr>
+  <tr>
+    <td>KNeighborsClassifier</td>
+    <td>0.37142857142857155</td>
+  </tr>
+  <tr>
+    <td>MultinomialNB</td>
+    <td>0.5500000000000004</td>
+  </tr>
+  <tr>
+    <td>BaggingClassifier</td>
+    <td>0.6347142857142858</td>
+  </tr>
+  <tr>
+    <td>ExtraTreesClassifier</td>
+    <td>0.6997142857142856</td>
+  </tr>
+  <tr>
+    <td>RandomForestClassifier</td>
+    <td>: 0.6759999999999997</td>
+  </tr>
+</table>
+<br>
+
+<p> 3.Visualization
+<br>
+<img src="tsnereddit.jpeg">
+    </p>
+	
+
+	<h2>Future Work</h2>
+	<p>Possible future improvements to the project include:<br>
+
+Improving the pre-processing and cleaning of the dataset <br>
+Experimenting with other statistical methods for text classification<br>
+Implementing more advanced neural network architectures<br>
+Developing a web application or browser extension for easy use of the model.</p>
+
+</body>
+</html>
